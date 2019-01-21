@@ -1,0 +1,52 @@
+
+// Application that applies the Net Present Value formula from Finance to calculate 
+// how much money you need to invest today to earn a certain amount in the future.
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lab_7
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        //post condition
+        private void Calc_Click(object sender, EventArgs e)
+        {
+            double future; // future value
+            bool isfuturnum = double.TryParse(FTV.Text, out future); // checks the value for the future value
+
+            double intrest;//intrest value
+            bool isintrestnum = double.TryParse(AIR.Text, out intrest);//checks the value for the intrest
+
+            int years; // number of years
+            bool isyearsnum = int.TryParse(NOY.Text, out years);//checks the value for the number of years
+
+            //checks an sees if inputs are numbers
+            if (isfuturnum && isintrestnum && isyearsnum)
+            {
+                valOut.Text = $"{presentValue(future, intrest, years):C}"; // the formula for present value
+            }
+            else
+                MessageBox.Show(" Enter Postive numbers only"); // box that pops up if postive numbers arnt enter
+        }
+        //Pre condition
+        public double presentValue(double future, double intrest, int years)
+        {
+            double presentValue; // Present Value
+            presentValue = future / Math.Pow(1 + intrest, years); //formula for present value
+            return presentValue; // resturns present value in the post condition
+
+        }
+    }
+}

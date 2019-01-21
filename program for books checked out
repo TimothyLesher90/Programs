@@ -1,0 +1,74 @@
+
+// STest Application
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program_4
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            //class objects
+            LibraryBook bookOne1 = new LibraryBook("A Game of Thrones 1", "George R Martin", "Spectra", 1997, "1");
+            LibraryBook bookOne2 = new LibraryBook("A Game of Thrones 2", "George R.R Martin", "Bantam", 1999, "2");
+            LibraryBook bookOne3 = new LibraryBook("A Game of Thrones 3", " Martin George", "Fishy Fishy Fishy", 2002, "3");
+            LibraryBook bookOne4 = new LibraryBook("A Game of Thrones 4", "JK Rowling", "Bantam Spectra", 2010, "4");
+            LibraryBook bookOne5 = new LibraryBook("A Game of Thrones 5", "Sir Arthor", "frightened place", 2015, "5");
+
+            //five element book array
+            LibraryBook[] books = new LibraryBook[5];
+
+            //initialize aarry with books of derived types
+            books[0] = bookOne1;
+            books[1] = bookOne2;
+            books[2] = bookOne3;
+            books[3] = bookOne4;
+            books[4] = bookOne5;
+
+            //writeline displaying the library books
+            Console.WriteLine("The Library books");
+            Console.WriteLine("");
+            PrintBooks(books);
+
+            //2 books checked out and 2 publishers and a call number
+            bookOne1.Publisher = "blah blah";
+            bookOne2.CheckOut();
+            bookOne3.CallNumber = "24";
+            bookOne4.CheckOut();
+            bookOne5.Publisher = "frightendlisher";
+
+            // update on what books are in and out
+            Console.WriteLine("Update");
+            Console.WriteLine("");
+            PrintBooks(books);
+
+            //5 books checked out
+            bookOne1.CheckOut();
+            bookOne2.CheckOut();
+            bookOne3.CheckOut();
+            bookOne4.CheckOut();
+            bookOne5.CheckOut();
+
+            //Rest of the books in the Library
+            Console.WriteLine("Books in the Library");
+            Console.WriteLine("");
+            PrintBooks(books);
+        }
+            public static void PrintBooks(LibraryBook[] books) //loop statement for the library books
+            {
+            //For each loop. Books in the array
+                foreach (LibraryBook currentBook in books)
+                {
+                    Console.WriteLine(currentBook);//invokes to string implicity
+                   
+                }
+            }
+        
+
+    }
+}

@@ -1,0 +1,73 @@
+
+// 4 different patterns of stars
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+            //Start of Program
+        {
+            const int MAX_ROWS = 10; //Max amount of rows wanted
+            
+            // Displaying Pattern A
+            Console.WriteLine("Pattern A");
+            Console.WriteLine();
+            
+            //Showing what pattern A is
+            for (int row = 1; row <= MAX_ROWS; row++)
+            {
+                for (int star = 1; star <= row; star++)
+                    Console.Write("*");
+                Console.WriteLine();
+            }
+            //Displaying pattern B
+            Console.WriteLine();
+            Console.WriteLine("Pattern B");
+            Console.WriteLine();
+
+            //Showing what pattern B is
+            for (int row = MAX_ROWS; row >= 1; row--)
+            {
+                for (int star = 1; star <= row; star++)
+                    Console.Write("*");
+                Console.WriteLine();
+            }
+            //Displaying pattern C
+            Console.WriteLine();
+            Console.WriteLine("Pattern C");
+            Console.WriteLine();
+
+            //Showing what pattern C is
+            for (int row = MAX_ROWS; row >= 1; row--)
+            {
+                for (int spaces = 1; spaces <= MAX_ROWS - row; ++spaces)
+                    Console.Write(" ");
+                for (int star = 1; star <= row; star++)
+                    Console.Write("*");
+                Console.WriteLine();
+            }
+            //Displaying pattern D
+            Console.WriteLine();
+            Console.WriteLine("Pattern D");
+            Console.WriteLine();
+
+            //Showing what pattern D is
+            for (int row = 1; row <= MAX_ROWS; row++)
+            {
+                for (int spaces = 1; spaces <= MAX_ROWS - row; ++spaces)
+                    Console.Write(" ");
+                for (int star = 1; star <= row; star++)
+                    Console.Write("*");
+                Console.WriteLine();
+            }
+        }
+        //End Result
+    }
+}

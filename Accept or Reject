@@ -1,0 +1,84 @@
+// C7390//
+// CIS 199-75//
+// Lab 4//
+// 10/3/2018//
+// This program decide if a student is accepted or reject in a school program //
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lab_4
+{
+    public partial class Form1 : Form
+    {
+        private double total_GPA = 0.0; //GPA input
+       
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            float GPA; //What the GPA is
+            int Test_Score; //What the test score is
+          
+            
+            const double ave_gpa = 3.0; //GPA
+            const int min_test = 60; // minimum score
+            const int max_test = 80; //maximum score
+           
+            //decides if you inputed a number
+            
+            if (float.TryParse(GPA_Input.Text, out GPA)&& (GPA>=0))
+            {
+                total_GPA += 1;
+                Count_Output.Text = $"{total_GPA}";
+            }
+            else
+                MessageBox.Show("Enter a proper GPA!");
+            if (Int32.TryParse(Score_Input.Text, out Test_Score) && (Test_Score >= 0))
+            {
+
+                // calculates an if state to decide if you are accepted or not
+
+                if ((GPA >= ave_gpa && Test_Score >= min_test)|| GPA < ave_gpa && Test_Score >= max_test)
+                    accept_reject_output.Text = $"Accepted";
+                else
+                    accept_reject_output.Text = $"Reject";
+
+               
+            }
+            else
+                MessageBox.Show("Enter a proper test score!");
+
+            
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        { //clears the fields
+
+            GPA_Input.Text = "";
+            Score_Input.Text = "";
+            accept_reject_output.Text = "";
+            Count_Output.Text = "";
+        }
+
+        private void GPA_Input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

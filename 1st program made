@@ -1,0 +1,22 @@
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Name: Lesher");
+            Console.WriteLine("Hobbies: Laptop Repair");
+            Console.WriteLine("Favorite Book: Game of Thrones");
+            Console.WriteLine("Favorite Movie: Wayne's World");
+        }
+    }
+}

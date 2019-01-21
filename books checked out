@@ -1,0 +1,105 @@
+
+// Show title author publisher, copyright year, call number and if a book is checked out or not.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program_4
+{
+    //book base class
+    public class LibraryBook
+    {
+
+        private string _title; //title of the book
+        private string _author; //author of the book
+        private string _pub; //publishor of the book
+        private int _copy; //copyright year of the book
+        private string _call; //call number of the book
+        private bool _isCheckedOut; //boolean value that decides if book is checked out
+
+        //read-only property that gets the title of the book
+        public string Title
+        {
+            get { return _title; }
+            
+            set { _title = value; }
+            
+        }
+
+        //read-only property that gets the author of the book
+        public string Author
+        {
+            get { return _author; }
+            
+            set { _author = value; }
+            
+        }
+        //read-only property that gets the publishor of the book
+        public string Publisher
+        {
+            get { return _pub; }
+            
+            set { _pub = value; }
+            
+        }
+        //Verify the copy right year
+        public int CopyrightYear
+        {
+            get { return _copy; }
+            
+            set
+            {
+                if (value > 0)//validation
+                    _copy = value;
+                else
+                    _copy = 2018;//directed default year
+            }
+            //End set
+            //end property Copyrightyear
+
+        }
+        //read-only property that gets the call number year of the book
+        public string CallNumber
+        {
+            get { return _call; }
+            
+            set { _call = value; }
+         
+        }
+        //five parameter constructor
+        public LibraryBook(string title, string author, string pub, int copy, string call)
+        {
+            Title = title;
+            Author = author;
+            Publisher = pub;
+            CopyrightYear = copy;
+            CallNumber = call;
+        }
+        //end of five parameter constructor
+
+
+        //shows is book is checked out
+        public void CheckOut()
+        {
+            _isCheckedOut = true;
+        }
+        //shows if it is returned to shelf
+        public void ReturnToShelf()
+        {
+            _isCheckedOut = false;
+        }
+        //shows is book is checked out
+        public bool IsCheckedOut()
+        {
+            return _isCheckedOut;
+        }
+        //return the string representation of Title, Author, Publisher, Copyright year, and call number
+        public override string ToString()
+        {
+            return $"Title: {Title}{Environment.NewLine}Author: {Author}{Environment.NewLine}Publisher: {Publisher}{Environment.NewLine}Copyright year: {CopyrightYear}{Environment.NewLine}Call Number: {CallNumber}{Environment.NewLine}Check out status: {IsCheckedOut()}{Environment.NewLine}";
+        }
+    }
+}// end class LibraryBook

@@ -1,0 +1,23 @@
+//Checks user month
+
+
+using System;
+using static System.Console;
+class CheckMonth
+{
+    static void Main()
+    {
+        string numberString;
+        int birth_month;
+
+        Write("birth month: ");
+        numberString = ReadLine();
+        birth_month = int.Parse(numberString);
+
+        if (birth_month < 1 || birth_month > 12)
+            WriteLine("Invalid month");
+        else
+            if (birth_month >= 1 && birth_month <= 12)
+            WriteLine("{0} is a valid month", birth_month);
+    }
+}

@@ -1,0 +1,77 @@
+// C7390//
+// CIS 199-75//
+// Lab 2//
+// 9/16/2018//
+// This program calculate tip rates//
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lab_2
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+            
+           
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Tip calculator//
+
+            decimal Total; //The amount the meal cost//
+            decimal Low; //fifteen percent of meal cost//
+            decimal Mid; //eighteen percent of meal cost//
+            decimal High; //twenty percent of meal cost//
+
+            const decimal Low_Tip = .15M; //Fifteen percent tip//
+            const decimal Mid_Tip = .18M; //Eighteen percent tip//
+            const decimal High_Tip = .20M; //Twenty percent tip //
+
+
+            Total = decimal.Parse(Total_Before_Tip.Text); //text box for total before tip//
+
+            Low = Total * Low_Tip;
+            Mid = Total * Mid_Tip;
+            High = Total * High_Tip;
+
+            Low_Rate_Output.Text = $"{Low:C}";
+            Mid_Rate_Output.Text = $"{Mid:C}";
+            High_Rate_Ouput.Text = $"{High:C}";
+
+            //Tip calculator//
+        }
+    }
+}

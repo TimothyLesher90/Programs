@@ -1,0 +1,18 @@
+//Convert the InchesToCentimeters program to an interactive application named InchesToCentimeterslnteractive.//
+
+
+
+using static System.Console;
+class InchesToCentimetersInteractive
+{
+    static void Main()
+    {
+        const double CENTIMETERS_PER_INCH = 2.54;
+        double inches = 3;
+        WriteLine("{0} inches is {1} centimeters", inches, inches * CENTIMETERS_PER_INCH);
+        Write("Enter the amount of inches to convert: ");
+        inches = double.Parse(ReadLine());
+        WriteLine("{0} inches is {1} centimeters", inches, inches * CENTIMETERS_PER_INCH);
+    }
+}
+

@@ -1,0 +1,21 @@
+//Write a program named CheckCredit that prompts users to enter a purchase price for an item.
+
+using System;
+using static System.Console;
+class CheckCredit
+{
+    static void Main()
+    {
+        string numberString;
+        double number;
+
+        Write("Enter purchase price: ");
+        numberString = ReadLine();
+        number = double.Parse(numberString);
+        if (number > 8000)
+            WriteLine("You have exceeded the credit limit");
+        else
+            WriteLine("Approved");
+
+    }
+}

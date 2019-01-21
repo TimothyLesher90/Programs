@@ -1,0 +1,30 @@
+using System;
+using static System.Console;
+public class FineForOverdueBooks
+{
+    public static void Main()
+    {
+        Write("Enter number of books: ");
+        int books = int.Parse(ReadLine());
+        Write("Enter number of days: ");
+        int days = int.Parse(ReadLine());
+        DisplayFine(books, days);
+
+
+    }
+    public static void DisplayFine(int books, int days)
+    {
+        double fine;
+
+        if (days > 7)
+        {
+            fine = (.10 * 7) + ((days - 7) * .20);
+        }
+        else
+        {
+            fine = days * .10;
+        }
+        fine *= books;
+        WriteLine($"The fine for {books} book(s) for {days} day(s) is {fine:c}");
+    }
+}

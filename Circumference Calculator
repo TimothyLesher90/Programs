@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Circumference_Calc
+{
+    //Calculates the circumference 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           Console.WriteLine("Enter Radius: ");
+            double Radius = double.Parse(Console.ReadLine()); //Radius of circle
+            double pi = Math.PI;
+            double circumference = 2 * pi * Radius;
+            Console.WriteLine("The circumference is: {0:0.00}", circumference);
+
+        }
+    }
+}

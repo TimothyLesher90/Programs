@@ -1,0 +1,30 @@
+//Determines the type of hurricane off of wind speed
+
+using System;
+using static System.Console;
+class Hurricane
+{
+    static void Main()
+    {
+        string numberString;
+        double windspeed;
+
+        Write("Windspeed:");
+        numberString = ReadLine();
+        windspeed = double.Parse(numberString);
+
+        if (windspeed >= 157)
+            WriteLine("This is a category 5 hurricane");
+        else if (windspeed >= 130)
+            WriteLine("This is a category 4 hurricane");
+        else if (windspeed >= 111)
+            WriteLine("This is a category 3 hurricane");
+        else if (windspeed >= 96)
+            WriteLine("This is a category 2 hurricane");
+        else if (windspeed >= 74)
+            WriteLine("This is a category 1 hurricane");
+        else
+            WriteLine("This is not a hurricane");
+
+    }
+}

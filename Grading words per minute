@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lab_6
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Click_Click(object sender, EventArgs e)
+        {
+            int wordsinput; //number of words inputt
+            int[] numwords = { 0, 16, 31, 51, 76 }; // array of words typed
+            string[] grades = { "F", "D", "C", "B", "A" }; // Grades for words typed
+            bool found = false;
+            string gradedes = "F"; //Lowest possible grade
+
+            // decide if numbers were entered and not letters
+            if (!int.TryParse(Words_input.Text, out wordsinput))
+            {
+                MessageBox.Show("Enter Postive Numbers Only!");
+                return;
+            }
+            
+            //Decides if postive number were entered
+            if(wordsinput < 0)
+            {
+                MessageBox.Show("Enter Postive Numbers Only");
+                return;
+            }
+
+            
+            wordsinput = int.Parse(Words_input.Text);
+            int sub = numwords.Length - 1;
+            
+            //Looks for the number of words typed in array
+            while (sub >= 0 && !found)
+            {
+                if (wordsinput >= numwords[sub])
+                    found = true;
+                else
+                    --sub;
+            }
+
+            //When number of words found the grade will output
+            if (found) 
+                gradedes = grades[sub];
+            Grd_Output.Text = $"{gradedes:p}";
+
+        }
+    }
+}

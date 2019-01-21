@@ -1,0 +1,24 @@
+//Malcolm Movers charges a base rate of $200 per move plus $150 per hour and $2 per mile.//
+
+
+
+
+using System;
+using static System.Console;
+class MoveEstimator
+{
+    static void Main()
+    {
+
+        const double baseRate = 200.00;
+        const double hourlyRate = 150.00;
+        const double milesRate = 2.00;
+
+        double hours = double.Parse(ReadLine());
+        double miles = double.Parse(ReadLine());
+
+        double estimate = baseRate + (hours * hourlyRate) + (miles * milesRate);
+
+        WriteLine("For a move taking {0} hours and going {1} miles the estimate is ${2:C}", hours, miles, estimate);
+    }
+}

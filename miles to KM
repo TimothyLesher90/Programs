@@ -1,0 +1,22 @@
+//Miles to KM
+
+using System;
+using static System.Console;
+class ConvertMilesToKilometers
+{
+    static void Main()
+    {
+        Write("Enter Miles to convert: ");
+        double miles = double.Parse(ReadLine());
+
+        WriteLine("{0} is {1} KM", miles, ConvertToKilometers(miles));
+    }
+    public static double ConvertToKilometers(double miles)
+    {
+        double km;
+        km = miles*1.60934;
+        return km;
+ 
+
+   }
+}

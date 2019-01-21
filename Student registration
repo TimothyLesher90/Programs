@@ -1,0 +1,124 @@
+
+// User inputs letter of last name and then the date and time will ouput to inform student when to register//
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Program_2
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Click_Here_Click(object sender, EventArgs e)
+        {
+            char last; // Letter of last name
+            
+
+            const string time_one = "8:30"; //First time
+            const string time_two = "10:00"; // second time
+            const string time_three = "11:30"; // third time
+            const string time_four = "2:00"; // fourth time
+            const string time_five = "4:00"; //Fifth time
+
+            const string Sr_Day = "Friday, Nov 2 @ "; //The day Seniors can register
+            const string Jr_Day = "Monday, Nov 5 @ "; //The day Juniors can register
+            const string soph1 = "Tuesday, Nov 6 @ ";//The day sophmores with first letter of last name between E and Q can register
+            const string soph2 = "Wednesday, Nov 7 @ ";//The day sophmores can register
+            const string frosh1 = "Thursday, Nov 8 @ ";//The day freshmen with first letter of last name between E and Q can register
+            const string frosh2 = "Friday, Nov 9 @ ";//The day freshmen can register
+
+
+            //Checking to see if something was inputted
+            if (!char.TryParse(LName_Input.Text, out last))
+            {
+                MessageBox.Show("Enter first letter of last name only");
+                return;
+            }
+
+            last = char.ToLower(last);
+
+            //Checking to see if a letter was inputted
+            if (last < 'a' || last > 'z')
+            {
+                MessageBox.Show("Enter first letter of last name only!");
+                return;
+            }
+
+            // Freshmen and Sophmore clock time
+            if (Frosh.Checked || Soph.Checked)
+            {
+                //Freshman or Sophmore day
+                if (Frosh.Checked)
+                    if (last >= 'e' && last <= 'q')
+                        Time_output.Text = frosh1;
+                    else
+                        Time_output.Text = frosh2;
+                else
+                    if (last >= 'e' && last <= 'q')
+                    Time_output.Text = soph1;
+                else
+                    Time_output.Text = soph2;
+
+            //Checking to see what the letter if to decide te correct time
+                if (last <= 'b')
+                    Time_output.Text += time_four;
+                else if (last <= 'd')
+                    Time_output.Text += time_five;
+                else if (last <= 'f')
+                    Time_output.Text += time_one;
+                else if (last <= 'i')
+                    Time_output.Text += time_two;
+                else if (last <= 'l')
+                    Time_output.Text += time_three;
+                else if (last <= 'o')
+                    Time_output.Text += time_five;
+                else if (last <= 'q')
+                    Time_output.Text += time_four;
+                else if (last <= 's')
+                    Time_output.Text += time_one;
+                else if (last <= 'v')
+                    Time_output.Text += time_two;
+                else
+                    Time_output.Text += time_three;
+            }
+            else //Decides if Jr or Sr
+            {
+                // Senior or Junior day
+                if (Sr.Checked)
+                    Time_output.Text = Sr_Day;
+                else
+                    Time_output.Text = Jr_Day;
+                //Decides the correct time
+                    if (last <= 'd')
+                        Time_output.Text += time_five;
+                    else if (last <= 'i')
+                        Time_output.Text += time_one;
+                    else if (last <= 'o')
+                        Time_output.Text += time_two;
+                    else if (last <= 's')
+                        Time_output.Text += time_three;
+                    else
+                        Time_output.Text += time_four;
+            }
+
+
+           
+
+
+           
+               
+        }
+        }
+    }
+

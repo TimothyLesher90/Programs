@@ -1,0 +1,47 @@
+
+// Calculate how many gallons of paint to buy for a room with windows and doors//
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program_1
+{
+    class Program
+    {
+        //paint calculator//
+        static void Main(string[] args)
+        {
+            double gallons_of_paint; //amount of paint you'll need//
+            const double square_feet_door = 20; //subtracting from equation//
+            const double square_feet_window = 15; //subtracting from equation//
+            const double square_feet_paint_cover = 385; //dividing from equation//
+            double gallonsToBuy; //gallon of paint to buy//
+
+            Console.Write("Welcome to the Handy-Dandy Paint Estimator");
+            Console.WriteLine("");
+            Console.Write("Enter the total lenght of all the walls (in feet): ");
+            double lenght_wall_Total = double.Parse(Console.ReadLine()); //lenght of the walls//
+            Console.Write("Enter the height of the walls (in feet): ");
+            double height_wall_Total = double.Parse(Console.ReadLine());//height of the walls//
+            Console.Write("Enter the number of doors (non-neg int): ");
+            int doors = int.Parse(Console.ReadLine());//number of the doors//
+            Console.Write("Enter the number of windows (non-neg int): ");
+            int windows = int.Parse(Console.ReadLine());//number of windows//
+            Console.Write("Enter the number of coats of paint (non-neg int): ");
+            int coats = int.Parse(Console.ReadLine());//number of coats needed//
+            Console.WriteLine("");
+            gallons_of_paint = ((lenght_wall_Total * height_wall_Total) - square_feet_door * doors - square_feet_window * windows) / square_feet_paint_cover * coats;
+            Console.WriteLine("You need a minimum of {0:0.0} gallons of paint", gallons_of_paint);
+
+            gallonsToBuy = (int)Math.Ceiling(gallons_of_paint);
+            gallonsToBuy = ((lenght_wall_Total * height_wall_Total) - square_feet_door * doors - square_feet_window * windows) / square_feet_paint_cover * coats;
+            Console.WriteLine("You'll need to buy {0:0} gallons, though", gallonsToBuy);
+        }
+        //end calculator//
+    }
+}

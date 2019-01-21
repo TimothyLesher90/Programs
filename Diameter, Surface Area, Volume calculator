@@ -1,0 +1,63 @@
+
+// This program calculate the Diameter, Surface Area and volume, //
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lab_3
+{
+    public partial class sphere_Calc : Form
+    {
+        public sphere_Calc()
+        {
+            InitializeComponent();
+        }
+
+        private void Radius_of_sphere_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Calculater//
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double Full_Rad; //The radius of the sphere//
+            double Diameter;//calculation of diameter//
+            double Surface_Area;//calculation of surface area//
+            double Volume; //Calculation of volume//
+
+            double pi = Math.PI; //pi for certain formula//
+            
+            Full_Rad = double.Parse(Rad_Input.Text);//Input for radius//
+
+            Diameter = Full_Rad * 2;
+            Surface_Area = 4 * pi * Math.Pow(Full_Rad, 2);
+            Volume = 4 * pi * Math.Pow( Full_Rad, 3)/3;
+
+            Diameter_Output.Text = $"{Diameter,0:F2}";
+            Surface_Area_Output.Text = $"{Surface_Area, 0:F2}";
+            Volume_Output.Text = $"{Volume,0:F2}";
+
+            //End Calculator//
+
+
+        }
+    }
+}

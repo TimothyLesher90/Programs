@@ -1,0 +1,25 @@
+using System;
+using static System.Console;
+class PaintingEstimate
+{
+    static void Main()
+    {
+        Write("Enter Length: ");
+        int length = int.Parse(ReadLine());
+        Write("Enter Width: ");
+        int width = int.Parse(ReadLine());
+        WriteLine("The estimated cost for painting is {0:C}", ComputeCost(length, width));
+
+
+    }
+
+    public static double ComputeCost(int length, int width)
+    {
+
+        int total;
+        total = (2 * length + 2 * width) * 9 * 6;
+        return total;
+
+
+    }
+}
